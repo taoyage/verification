@@ -9,25 +9,25 @@ A library for data validation.
 
 ### No ES6
 
-```
-	var verification = require('verification');
-	verification.isNumeric('123');
+```javascript
+var verification = require('verification');
+verification.isNumeric('123');
 ```
 
 ### ES6
 
-```
-	import verification from 'verification';
-	verification.isEmail('accord@123.com');
+```javascript
+import verification from 'verification';
+verification.isEmail('accord@123.com');
 ```
 
 ### With Browser
 
-```
-	<script type="text/javascript" src="./verification.js"></script>
-    <script type="text/javascript">
-    	const result = verification.isURL('http://www.taoyage.net');
-    </script>
+```javascript
+<script type="text/javascript" src="./verification.js"></script>
+<script type="text/javascript">
+	const result = verification.isURL('http://www.taoyage.net');
+</script>
 ```
 
 ## API
