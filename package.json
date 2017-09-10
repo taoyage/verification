@@ -1,0 +1,22 @@
+{
+  "name": "verification",
+  "version": "1.0.0",
+  "description": "A library for data validation.",
+  "main": "verification.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taoyage/verification.git"
+  },
+  "keywords": [
+    "verification"
+  ],
+  "author": "accord",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taoyage/verification/issues"
+  },
+  "homepage": "https://github.com/taoyage/verification#readme"
+}
