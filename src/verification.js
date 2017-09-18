@@ -2,8 +2,9 @@
  * @Author: accord
  * @Date:   2017-09-09 19:41:46
  * @Last Modified by:   accord
- * @Last Modified time: 2017-09-10 16:26:58
+ * @Last Modified time: 2017-09-11 11:09:17
  */
+
 
 (function(global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -32,6 +33,14 @@
             throw new TypeError('Data type must be string');
         }
     };
+
+    const assertNumber = value => {
+        if (!isNumber(value)) {
+            throw new TypeError('Data type must be Number');
+        }
+    };
+
+
 
 
 
@@ -389,11 +398,43 @@
      */
     const isIp = str => isIpv4(str) || isIpv6(str);
 
-    // const isInt = value => {
-    // 	if(isNumber(value)){
-    // 		return parseInt(value) === number;
-    // 	}
-    // };
+
+    //verification option
+
+	//起息日
+    const valueDate = (valueDate, maturityDate) => {
+        assertString(valueDate);
+        assertString(maturityDate);
+        valueDate = new Date(valueDate.replace(/-/g, "/"));
+        maturityDate = new Date(maturityDate.replace(/-/g, "/"));
+        return valueDate < maturityDate;
+    };
+	
+	//到期日
+    const maturityDate = (maturityDate, valueDate) => {
+        assertString(maturityDate);
+        assertString(valueDate);
+        valueDate = new Date(valueDate.replace(/-/g, "/"));
+        maturityDate = new Date(maturityDate.replace(/-/g, "/"));
+        return valueDate < maturityDate;
+    };
+
+    //验证上执行价
+    const ValidationUpperStrikePrice = (upperStrikePrice, lowerStrikePrice) => {
+        assertNumber(upperStrikePrice);
+        assertNumber(lowerStrikePrice);
+        return upperStrikePrice >= lowerStrikePrice;
+    };
+
+    //验证下执行价
+    const ValidationLowerStrikePrice = (upperStrikePrice, lowerStrikePrice) => {
+        assertNumber(upperStrikePrice);
+        assertNumber(lowerStrikePrice);
+        return upperStrikePrice <= lowerStrikePrice;
+    };
+
+
+
 
     const verification = {
         isUndefined: isUndefined,
